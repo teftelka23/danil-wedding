@@ -1,1 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Данил × Тефтелька — Wedding Issue</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f3f0e9;
+      color: #171717;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .page {
+      max-width: 1400px;
+      margin: auto;
+      padding: 28px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #171717;
+      padding-bottom: 15px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .issue {
+      font-weight: 500;
+    }
+
+    .cover {
+      min-height: 85vh;
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 30px;
+      padding: 55px 0;
+      border-bottom: 1px solid #171717;
+    }
+
+    .cover-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(60px, 9vw, 145px);
+      line-height: .86;
+      font-weight: 400;
+      letter-spacing: -5px;
+    }
+
+    .cover-description {
+      max-width: 320px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .cover-photo {
+      background:
+        linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.05)),
+        #d6d0c5;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .cover-photo span {
+      max-width: 200px;
+    }
+
+    section {
+      padding: 100px 0;
+      border-bottom: 1px solid #171717;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+    }
+
+    .story-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(45px, 6vw, 90px);
+      line-height: .95;
+      font-weight: 400;
+    }
+
+    .story-text {
+      max-width: 650px;
+      font-size: 20px;
+      line-height: 1.55;
+    }
+
+    .story-text p {
+      margin-bottom: 25px;
+    }
+
+    .highlight {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 32px;
+      line-height: 1.2;
+      margin: 50px 0;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #171717;
+      border: 1px solid #171717;
+    }
+
+    .event {
+      background: #f3f0e9;
+      padding: 30px;
+      min-height: 230px;
+    }
+
+    .event-year {
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 50px;
+    }
+
+    .event-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .event-text {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .wedding {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .wedding-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(55px, 7vw, 100px);
+      line-height: .9;
+    }
+
+    .details {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .detail {
+      border-top: 1px solid #171717;
+      padding: 20px 0;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+    }
+
+    .detail-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .rsvp {
+      text-align: center;
+      padding: 140px 20px;
+    }
+
+    .rsvp h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(60px, 10vw, 150px);
+      font-weight: 400;
+      line-height: .9;
+      margin-bottom: 35px;
+    }
+
+    .rsvp p {
+      max-width: 450px;
+      margin: auto;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    @media (max-width: 800px) {
+      .page {
+        padding: 18px;
+      }
+
+      .cover,
+      .story,
+      .wedding {
+        grid-template-columns: 1fr;
+      }
+
+      .cover {
+        min-height: auto;
+      }
+
+      .cover-photo {
+        min-height: 500px;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .detail {
+        grid-template-columns: 100px 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <header>
+    <div>THE WEDDING ISSUE</div>
+    <div>№ 01 / 2026</div>
+    <div>DANIL × TEFTELKA</div>
+  </header>
+
+  <main>
+
+    <section class="cover">
+
+      <div class="cover-text">
+
+        <div class="eyebrow">
+          A very special issue
+        </div>
+
+        <h1>
+          Данил<br>
+          ×<br>
+          Тефтелька
+        </h1>
+
+        <div class="cover-description">
+          Два человека.<br>
+          Одна история.<br>
+          И почему-то всё это началось<br>
+          с поездки всего на одну неделю.
+        </div>
+
+      </div>
+
+      <div class="cover-photo">
+        <span>
+          ЗДЕСЬ БУДЕТ<br>
+          ВАША ФОТОГРАФИЯ
+        </span>
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="section-label">
+        01 — Editor's note
+      </div>
+
+      <div class="story">
+
+        <div class="story-title">
+          Данил приехал<br>
+          только на неделю.
+        </div>
+
+        <div class="story-text">
+
+          <p>
+            И, как это часто бывает с хорошими историями,
+            всё пошло немного не по плану.
+          </p>
+
+          <p>
+            До первой встречи мы общались две недели.
+            Две недели сообщений, разговоров и постепенно
+            возникающего ощущения, что этот человек почему-то
+            становится всё более важным.
+          </p>
+
+          <div class="highlight">
+            «Он приехал на неделю.<br>
+            А остался навсегда.»
+          </div>
+
+          <p>
+            Видимо, обратный билет оказался недостаточно
+            убедительным аргументом.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="section-label">
+        02 — The timeline
+      </div>
+
+      <div class="timeline">
+
+        <div class="event">
+          <div class="event-year">01 / BEFORE</div>
+          <div class="event-title">Две недели</div>
+          <div class="event-text">
+            Общались ещё до того,
+            как вообще встретились.
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="event-year">02 / THE MEETING</div>
+          <div class="event-title">Первая встреча</div>
+          <div class="event-text">
+            Тот самый момент,
+            после которого всё изменилось.
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="event-year">03 / SOMEHOW</div>
+          <div class="event-title">Он остался</div>
+          <div class="event-text">
+            Неделя закончилась.
+            Данил — нет.
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="event-year">04 / NOW</div>
+          <div class="event-title">Мы женимся</div>
+          <div class="event-text">
+            Кажется, это уже официально.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="section-label">
+        03 — The wedding
+      </div>
+
+      <div class="wedding">
+
+        <div class="wedding-title">
+          See you<br>
+          at the<br>
+          wedding.
+        </div>
+
+        <div class="details">
+
+          <div class="detail">
+            <div class="detail-label">Date</div>
+            <div>2026</div>
+          </div>
+
+          <div class="detail">
+            <div class="detail-label">Time</div>
+            <div>Скоро узнаете</div>
+          </div>
+
+          <div class="detail">
+            <div class="detail-label">Place</div>
+            <div>Скоро узнаете</div>
+          </div>
+
+          <div class="detail">
+            <div class="detail-label">Dress code</div>
+            <div>Будет красиво.<br>Обещаем.</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="rsvp">
+
+      <div class="section-label">
+        04 — RSVP
+      </div>
+
+      <h2>
+        Will you<br>
+        join us?
+      </h2>
+
+      <p>
+        Здесь позже появится форма,
+        где можно будет подтвердить своё присутствие
+        на нашей свадьбе.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div>THE WEDDING ISSUE</div>
+    <div>DANIL × TEFTELKA</div>
+    <div>2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
